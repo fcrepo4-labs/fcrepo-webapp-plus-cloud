@@ -1,0 +1,51 @@
+<infinispan xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            xsi:schemaLocation="urn:infinispan:config:7.2 http://www.infinispan.org/schemas/infinispan-config-7.2.xsd urn:infinispan:config:store:cloud:7.2"
+            xmlns:store="urn:infinispan:config:store:cloud:7.2"
+            xmlns="urn:infinispan:config:7.2">
+
+  <cache-container default-cache="FedoraRepositoryMetaData">
+    <jmx duplicate-domains="true"/>
+    <local-cache name="FedoraRepositoryBinaryData" statistics="true">
+      <transaction transaction-manager-lookup="org.infinispan.transaction.lookup.GenericTransactionManagerLookup"
+                   mode="NON_XA" locking="PESSIMISTIC"/>
+      <eviction max-entries="500" strategy="LIRS" thread-policy="DEFAULT"/>
+      <!-- Define the cache loaders (i.e., cache stores). Passivation is false
+          because we want *all* data to be persisted, not just what doesn't fit into
+          memory. -->
+      <persistence passivation="false">
+        <!-- location = AWS region
+             identity = AWS Access ID
+             credential = AWS Secret Key
+             container = S3 bucket prefix (suffix is defined in repository.json cacheName)
+             endpoint = AWS endpoint (should match up with region) -->
+        <store:cloud-store
+            provider="aws-s3"
+            location="${fcrepo.ispn.s3.region}"
+            identity="${fcrepo.ispn.s3.accessid}"
+            credential="${fcrepo.ispn.s3.secretkey}"
+            container="${fcrepo.ispn.s3.bucketprefix}"
+            endpoint="${fcrepo.ispn.s3.endpoint}"
+            compress="true" />
+      </persistence>
+    </local-cache>
+
+    <local-cache name="FedoraRepositoryMetaData" statistics="true">
+      <transaction transaction-manager-lookup="org.infinispan.transaction.lookup.GenericTransactionManagerLookup"
+                   mode="NON_XA" locking="PESSIMISTIC"/>
+      <eviction max-entries="500" strategy="LIRS" thread-policy="DEFAULT"/>
+      <!-- Define the cache loaders (i.e., cache stores). Passivation is false
+          because we want *all* data to be persisted, not just what doesn't fit into
+          memory. -->
+      <persistence passivation="false">
+        <store:cloud-store
+            provider="aws-s3"
+            location="${fcrepo.ispn.s3.region}"
+            identity="${fcrepo.ispn.s3.accessid}"
+            credential="${fcrepo.ispn.s3.secretkey}"
+            container="${fcrepo.ispn.s3.bucketprefix}"
+            endpoint="${fcrepo.ispn.s3.endpoint}"
+            compress="true" />
+      </persistence>
+    </local-cache>
+  </cache-container>
+</infinispan>
