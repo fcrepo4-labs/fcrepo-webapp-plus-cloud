@@ -7,7 +7,7 @@ before_install:
  - "export JAVA_OPTS=-Xmx512m"
 
 script:
- - mvn install -B -V
+ - mvn install -B -V -DskipITs
 
 notifications:
   irc: "irc.freenode.org#fcrepo"

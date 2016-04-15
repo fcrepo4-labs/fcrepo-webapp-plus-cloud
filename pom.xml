@@ -14,10 +14,11 @@
 
   <properties>
     <project_name>fcrepo-webapp-plus-cloud</project_name>
-    <!-- integration test properties -->
-    <fcrepo.test.context.path>/</fcrepo.test.context.path>
+    <fcrepo.version>4.5.1-SNAPSHOT</fcrepo.version>
     <infinispan.cachestore.cloud.version>7.1.1.Final</infinispan.cachestore.cloud.version>
     <jclouds.version>1.9.2</jclouds.version>
+    <!-- integration test properties -->
+    <fcrepo.test.context.path>/</fcrepo.test.context.path>
   </properties>
 
   <repositories>
@@ -46,25 +47,25 @@
     <dependency>
       <groupId>org.fcrepo</groupId>
       <artifactId>fcrepo-webapp</artifactId>
-      <version>4.5.1-SNAPSHOT</version>
+      <version>${fcrepo.version}</version>
       <type>war</type>
     </dependency>
     <dependency>
       <groupId>org.fcrepo</groupId>
       <artifactId>fcrepo-webapp</artifactId>
-      <version>4.5.1-SNAPSHOT</version>
+      <version>${fcrepo.version}</version>
       <type>jar</type>
       <classifier>classes</classifier>
     </dependency>
     <dependency>
       <groupId>org.fcrepo</groupId>
       <artifactId>fcrepo-mint</artifactId>
-      <version>4.5.1-SNAPSHOT</version>
+      <version>${fcrepo.version}</version>
     </dependency>
     <dependency>
       <groupId>org.fcrepo.transform</groupId>
       <artifactId>fcrepo-transform</artifactId>
-      <version>4.5.1-SNAPSHOT</version>
+      <version>${fcrepo.version}</version>
     </dependency>
 
     <dependency>
