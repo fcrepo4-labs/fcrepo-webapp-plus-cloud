@@ -1,0 +1,32 @@
+{
+    "name" : "repo",
+    "jndiName" : "",
+    "workspaces" : {
+        "predefined" : ["default"],
+        "default" : "default",
+        "allowCreation" : true
+    },
+    "storage" : {
+        "persistence": {
+            "type" : "db",
+            "connectionUrl": "jdbc:mysql://${fcrepo.mysql.host:localhost}:${fcrepo.mysql.port:3306}/fcrepo?createDatabaseIfNotExist=true",
+            "driver" : "com.mysql.jdbc.Driver",
+            "username" : "${fcrepo.mysql.username}",
+            "password" : "${fcrepo.mysql.password}"
+        },
+        "binaryStorage" : {
+            "type"  : "custom",
+            "classname" : "org.fcrepo.modeshape.binary.S3BinaryStore"
+        }
+    },
+    "security" : {
+        "anonymous" : {
+            "roles" : ["readonly","readwrite","admin"],
+            "useOnFailedLogin" : false
+        },
+        "providers" : [
+            { "classname" : "org.fcrepo.auth.common.BypassSecurityServletAuthenticationProvider" }
+        ]
+    },
+    "node-types" : ["fedora-node-types.cnd"]
+}
