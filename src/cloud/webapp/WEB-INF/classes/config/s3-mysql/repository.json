@@ -15,8 +15,10 @@
             "password" : "${fcrepo.mysql.password}"
         },
         "binaryStorage" : {
-            "type"  : "custom",
-            "classname" : "org.fcrepo.modeshape.binary.S3BinaryStore"
+            "type" : "s3",
+            "username" : "${aws.accessKeyId}",
+            "password" : "${aws.secretKey}",
+            "bucketName" : "${aws.bucket}"
         }
     },
     "security" : {
