@@ -10,17 +10,17 @@ test exists to perform a basic deployment test only and may be useful just for i
 errors in configuration file updates or third party library version incompatibilities.
 
 # Dependencies
-This project has a dependency on the [ModeShape S3 Binary Store](https://github.com/fcrepo4-labs/modeshape-s3-binary-store), 
+This project current has a dependency on the [ModeShape master branch](https://github.com/ModeShape/modeshape), 
 which is not currently available in Maven central. The project will need to be built locally using:
 ```
 mvn install
 ```
 This project also depends on ModeShape 5.x being integrated with the Fedora Repository. This is 
-currently available on the [modeshape5 branch of the fcrepo4 codebase](https://github.com/fcrepo4/fcrepo4/tree/modeshape5). 
+currently available in the [master branch of fcrepo4](https://github.com/fcrepo4/fcrepo4).
 
 # Build
-Maven is ued to build the project. Make sure to build the modeshape-s3-binary-store and 
-fcrepo4 (modeshape5 branch) prior to running this build.
+Maven is used to build the project. Make sure to build ModeShape and 
+fcrepo4 prior to running this build.
 ```
 mvn install
 ```
