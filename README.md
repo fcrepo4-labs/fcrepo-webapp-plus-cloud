@@ -10,17 +10,20 @@ test exists to perform a basic deployment test only and may be useful just for i
 errors in configuration file updates or third party library version incompatibilities.
 
 # Dependencies
-This project current has a dependency on the [ModeShape master branch](https://github.com/ModeShape/modeshape), 
-which is not currently available in Maven central. The project will need to be built locally using:
+This project currently has a dependency on the [ModeShape master branch](https://github.com/ModeShape/modeshape), 
+which is not available in Maven central. The project will need to be built locally using:
 ```
 mvn install
 ```
 This project also depends on ModeShape 5.x being integrated with the Fedora Repository. This is 
-currently available in the [master branch of fcrepo4](https://github.com/fcrepo4/fcrepo4).
+currently available in the [master branch of fcrepo4](https://github.com/fcrepo4/fcrepo4). Fedora will also need to be built locally using:
+```
+mvn install
+```
 
 # Build
 Maven is used to build the project. Make sure to build ModeShape and 
-fcrepo4 prior to running this build.
+Fedora (as noted in Dependencies above) prior to running this build. To build this project, use:
 ```
 mvn install
 ```
