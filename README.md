@@ -2,7 +2,7 @@ fcrepo-webapp-plus-cloud
 ========================
 
 
-[![Build Status](https://travis-ci.org/fcrepo4-labs/fcrepo-webapp-plus-cloud.png?branch=master)](https://travis-ci.org/fcrepo4-labs/fcrepo-webapp-plus-cloud)
+[![Build Status](https://travis-ci.com/fcrepo4-labs/fcrepo-webapp-plus-cloud.png?branch=master)](https://travis-ci.com/fcrepo4-labs/fcrepo-webapp-plus-cloud)
 
 Fcrepo4 webapp plus options to store binary content in S3.  This project builds a custom-configured
 fcrepo4 webapp war file that includes extra dependencies and configuration options.  An integration 
